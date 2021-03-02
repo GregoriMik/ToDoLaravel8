@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class TodosController extends Controller
 {
-    //
+    public function todo(){
+        return view('todos.todo');
+    }
 }
