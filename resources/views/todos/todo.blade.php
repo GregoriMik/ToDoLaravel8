@@ -11,8 +11,15 @@
     <title>To do app</title>
   </head>
   <body>
-    
+    <main class="wraper d-flex align-item-center justify-content-center">
 
+        {{-- form --}}
+        <form action="" class="todos-form">
+            <input type="text" name="todo" class="form-control rounded-0"placeholder="enter">
+            <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Dodaj</button>
+        </form>
+        {{-- form --}}
+    </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
