@@ -14,3 +14,5 @@ use App\Http\Controllers\TodosController;
 */
 
 Route::get('/', [TodosController::class,'todo'])->name('todos');
+
+Route::post('/create', [TodosController::class,'create'])->name('create');

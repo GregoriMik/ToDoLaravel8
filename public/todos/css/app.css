@@ -2,8 +2,44 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
-
 }
-/* html, body{
-    background-color: #111;
-} */
+.wraper{
+    min-height:100vh;
+    background-color: #f8f8f8;
+}
+/* todos form */
+.todos-form{
+    width:700px;
+    text-align: center;
+    margin:0 auto;
+    padding: 2rem;
+    background-color: white;
+}
+.todos-form .form-control,
+.todos-form .btn{
+    height:70px;
+}
+.todos-form .form-control::placeholder{
+    text-transform:capitalize;
+}
+.todos-form .form-control{
+    width:80%;
+}
+.todos-form .btn{
+    width:20%;
+    line-height:50px;
+    font-size: 18px;
+}
+.todos-list{
+    width: 700px;
+    text-align: center;
+    margin:0 auto;
+}
+.todos-list .item{
+    padding:2rem;
+    background-color: white;
+}
+.text{
+    line-height: 1.7;
+    color:#777
+}

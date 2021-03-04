@@ -11,15 +11,36 @@
     <title>To do app</title>
   </head>
   <body>
-    <main class="wraper d-flex align-item-center justify-content-center">
+      {{-- wraper --}}
+                <main class="wraper d-flex flex-column align-item-center justify-content-center ">
 
-        {{-- form --}}
-        <form action="" class="todos-form">
-            <input type="text" name="todo" class="form-control rounded-0"placeholder="enter">
-            <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Dodaj</button>
-        </form>
-        {{-- form --}}
-    </main>
+                    {{-- form --}}
+                    <form action="{{ route('create') }}" method="POST" class="todos-form d-flex align-items-center justify-items-center flex-wrap shadow-sm">
+                        @csrf
+
+                        <input type="text" name="todo" class="@error('todo') border border-danger @enderror form-control rounded-0"placeholder="enter">
+                        <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Dodaj</button>
+                    
+                        @error('todo')
+                            {{-- error message --}}
+                            <div class="alert w-100 alert-danger text-capitalize rounded-0 mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </form>
+                    {{-- form --}}
+                    
+                    {{-- todos list --}}
+                    <div class="todos-list mt-3">
+                            {{-- todos item --}}
+                            <div class="item d-flex align-items-center shadow">
+                                <p class="text">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, atque, perferendis ex natus recusandae quia fuga.
+                                </p>
+                            </div>
+                    </div>
+                
+                </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
