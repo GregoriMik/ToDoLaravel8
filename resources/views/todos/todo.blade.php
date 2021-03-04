@@ -18,6 +18,12 @@
                     <form action="{{ route('create') }}" method="POST" class="todos-form d-flex align-items-center justify-items-center flex-wrap shadow-sm">
                         @csrf
 
+                        @if (session()->has('success'))
+                        <div class="alert alert-success text-capitalize rounded-0 mb-3 w-100">
+                            {{ session()->get('success') }}
+                        </div>
+                            
+                        @endif
                         <input type="text" name="todo" class="@error('todo') border border-danger @enderror form-control rounded-0"placeholder="enter">
                         <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Dodaj</button>
                     
@@ -31,14 +37,29 @@
                     {{-- form --}}
                     
                     {{-- todos list --}}
+                    @foreach ($todos as $todo)
+                        
+                    
                     <div class="todos-list mt-3">
                             {{-- todos item --}}
-                            <div class="item d-flex align-items-center shadow">
-                                <p class="text">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, atque, perferendis ex natus recusandae quia fuga.
-                                </p>
+                            <div class="item d-flex align-items-center shadow flex-wrap">
+                                <p class="text p-0 m-0 text-capitalize">{{ $todo->todo }}</p>
+                            
+                            {{-- actions --}}
+                            <div class="actions d-flex align-items-center w-100 mt-3 pt-3 border-top">
+
+                                {{-- update --}}
+                                <a href="" class="btn btn-primary rounded-0 me-2 d-flex align-items-center justify-content-center text-capitalize text-decoration-none flex-wrap">update</a>
+                                {{-- delete-todo --}}
+                                <form action="{{ route('delete', ['id'=> $todo->id]) }}"method="POST"class="delete-todo-form">
+                                    @csrf
+                                    <button class="btn btn-danger rounded-0 me-2 text-capitalize d-flex align-items-center">delete</button>
+                                </form> 
                             </div>
+                        </div>
+
                     </div>
+                    @endforeach
                 
                 </main>
     <!-- Optional JavaScript; choose one of the two! -->

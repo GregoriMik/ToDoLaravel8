@@ -10,7 +10,10 @@ class TodosController extends Controller
 {
     // render todos page
     public function todo(){
-        return view('todos.todo');
+        
+        $todos = Todo::orderBy('created_at','desc')->get();
+
+        return view('todos.todo',compact('todos'));
     }
 
     //create todos
@@ -24,6 +27,15 @@ class TodosController extends Controller
         $todo->todo = $request->todo;
         $todo-> save();
 
-        return redirect()->back()->withSuccess('todo created successfull ...');
+        return redirect()->back()->with('success','todo created successfully ...');
+    }
+
+    //delete todo
+    public function destroy(Request $request, $id)
+    {
+        $todo=Todo::findOrFail($id);
+        $todo->delete();
+
+        return redirect()->back()->with('success','todo delete successfully ...');
     }
 }
