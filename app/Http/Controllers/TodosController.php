@@ -38,4 +38,14 @@ class TodosController extends Controller
 
         return redirect()->back()->with('success','todo delete successfully ...');
     }
+
+    //update todo new page
+    public function updatePage($id){
+
+        $todo = Todo::findOrFail($id);
+
+        return view('todos.updateTodo', compact('todo'));
+    }
+
+    
 }

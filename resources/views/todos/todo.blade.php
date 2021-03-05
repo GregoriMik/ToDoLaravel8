@@ -49,7 +49,7 @@
                             <div class="actions d-flex align-items-center w-100 mt-3 pt-3 border-top">
 
                                 {{-- update --}}
-                                <a href="" class="btn btn-primary rounded-0 me-2 d-flex align-items-center justify-content-center text-capitalize text-decoration-none flex-wrap">update</a>
+                                <a href="{{ route('update',['id' => $todo->id ]) }}" class="btn btn-primary rounded-0 me-2 d-flex align-items-center justify-content-center text-capitalize text-decoration-none flex-wrap">update</a>
                                 {{-- delete-todo --}}
                                 <form action="{{ route('delete', ['id'=> $todo->id]) }}"method="POST"class="delete-todo-form">
                                     @csrf
