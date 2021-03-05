@@ -15,7 +15,7 @@
                 <main class="wraper d-flex flex-column align-item-center justify-content-center ">
 
                     {{-- form --}}
-                    <form action="{{ route('create') }}" method="POST" class="todos-form d-flex align-items-center justify-items-center flex-wrap shadow-sm">
+                    <form action="{{ route('update',['id'=>$todo->id]) }}" method="POST" class="todos-form d-flex align-items-center justify-items-center flex-wrap shadow-sm">
                         @csrf
 
                         

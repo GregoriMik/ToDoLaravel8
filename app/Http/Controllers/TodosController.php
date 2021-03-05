@@ -47,5 +47,18 @@ class TodosController extends Controller
         return view('todos.updateTodo', compact('todo'));
     }
 
-    
+    //update todo
+    public function update(Request $request, $id){
+
+        $request->validate([
+            'todo'=>'required'
+        ]);
+
+        $todo = Todo::findOrFail($id);
+
+        $todo->todo = $request->todo;
+        $todo-> update(['id'=>$todo->id]);
+
+        return redirect()->route('todos')->with('success','todo created successfully ...');
+    }
 }
