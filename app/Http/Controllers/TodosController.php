@@ -59,6 +59,6 @@ class TodosController extends Controller
         $todo->todo = $request->todo;
         $todo-> update(['id'=>$todo->id]);
 
-        return redirect()->route('todos')->with('success','todo created successfully ...');
+        return redirect()->route('todos')->with('success','todo updated successfully ...');
     }
 }

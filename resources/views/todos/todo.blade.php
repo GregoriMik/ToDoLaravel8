@@ -25,7 +25,7 @@
                             
                         @endif
                         <input type="text" name="todo" class="@error('todo') border border-danger @enderror form-control rounded-0"placeholder="enter">
-                        <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Dodaj</button>
+                        <button class="btn btn-primary d-flex align-item-center justify-content-center text-capital">Add</button>
                     
                         @error('todo')
                             {{-- error message --}}
@@ -36,12 +36,13 @@
                     </form>
                     {{-- form --}}
                     
-                    {{-- todos list --}}
-                    @foreach ($todos as $todo)
+                    
                         
                     
                     <div class="todos-list mt-3">
                             {{-- todos item --}}
+                            {{-- todos list --}}
+                            @foreach ($todos as $todo)
                             <div class="item d-flex align-items-center shadow flex-wrap">
                                 <p class="text p-0 m-0 text-capitalize">{{ $todo->todo }}</p>
                             
@@ -57,10 +58,13 @@
                                 </form> 
                             </div>
                         </div>
+                    
+                        @endforeach
 
+                        @if ($todos->count() <= 0)
+                            <div class="alert alert-into text-capitalize rounded-0 shadow">No todos found, create some.</div>
+                        @endif
                     </div>
-                    @endforeach
-                
                 </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
